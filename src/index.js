@@ -3,9 +3,9 @@
 fetch ("http://localhost:3000/ramens")
 .then(res => res.json())
 .then(data => {
+    getRamenDetails(data[0])
     data.forEach(ramen =>{
-        ramenImageDisplay(ramen),
-        getRamenDetails(ramen)
+        ramenImageDisplay(ramen)
     })
 });
 
@@ -16,9 +16,7 @@ function ramenImageDisplay(ramen){
     let ramenImage = document.createElement("img");
     ramenImage.src = ramen.image;
     ramenImage.addEventListener("click", ()=> getRamenDetails(ramen));
-
     ramenMenu.appendChild(ramenImage);
-    
 }
 
 function getRamenDetails(ramen){
